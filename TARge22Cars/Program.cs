@@ -4,13 +4,12 @@ using TARge22Cars.Core.ServiceInterface;
 using TARge22Cars.ApplicationService.Services;
 
 
-
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TARge22CarsContext>(options =>
    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<ICarsServices, CarsServices>();
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -30,7 +29,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
 app.MapRazorPages();
 
 app.Run();

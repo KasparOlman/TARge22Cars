@@ -1,6 +1,6 @@
 ﻿namespace TARge22Cars.Models.Cars
 {
-    public class CarsUpdateViewModel
+    public class CarsCreateUpdateViewModel
     {
         public Guid CarId { get; set; }
         public string Make { get; set; }
