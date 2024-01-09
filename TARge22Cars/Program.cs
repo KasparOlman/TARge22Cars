@@ -1,12 +1,16 @@
 using TARge22Cars.Data;
 using Microsoft.EntityFrameworkCore;
+using TARge22Cars.Core.ServiceInterface;
+using TARge22Cars.ApplicationService.Services;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TARge22CarsContext>(options =>
    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
