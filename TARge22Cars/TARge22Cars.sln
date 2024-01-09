@@ -3,12 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge22Cars", "TARge22Cars.csproj", "{D8CAE5FA-260E-4315-BBFD-10DAFD2E25EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TARge22Cars", "TARge22Cars.csproj", "{D8CAE5FA-260E-4315-BBFD-10DAFD2E25EC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{506C4F93-2367-43BE-9726-7C199EC5E921}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge22Cars.ApplicationService", "..\TARge22Cars.ApplicationService\TARge22Cars.ApplicationService.csproj", "{7F07AE56-558A-44C7-A368-89C423DB226B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge22Cars.Core", "..\TARge22Cars.Core\TARge22Cars.Core.csproj", "{5ED6A35D-E41A-4E33-A468-562A14BCF6E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TARge22Cars.Data", "..\TARge22Cars.Data\TARge22Cars.Data.csproj", "{EEC1F1FA-6677-4210-87BD-9B3D229F38E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +26,18 @@ Global
 		{D8CAE5FA-260E-4315-BBFD-10DAFD2E25EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8CAE5FA-260E-4315-BBFD-10DAFD2E25EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8CAE5FA-260E-4315-BBFD-10DAFD2E25EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F07AE56-558A-44C7-A368-89C423DB226B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F07AE56-558A-44C7-A368-89C423DB226B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F07AE56-558A-44C7-A368-89C423DB226B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F07AE56-558A-44C7-A368-89C423DB226B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ED6A35D-E41A-4E33-A468-562A14BCF6E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED6A35D-E41A-4E33-A468-562A14BCF6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED6A35D-E41A-4E33-A468-562A14BCF6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED6A35D-E41A-4E33-A468-562A14BCF6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC1F1FA-6677-4210-87BD-9B3D229F38E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC1F1FA-6677-4210-87BD-9B3D229F38E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC1F1FA-6677-4210-87BD-9B3D229F38E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC1F1FA-6677-4210-87BD-9B3D229F38E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
