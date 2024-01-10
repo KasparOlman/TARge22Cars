@@ -43,7 +43,7 @@ namespace TARge22Cars.Controllers
         public IActionResult Create()
         {
             CarsCreateUpdateViewModel result = new();
-            return View("Create",result);
+            return View("CreateUpdate",result);
         }
 
         [HttpPost]
