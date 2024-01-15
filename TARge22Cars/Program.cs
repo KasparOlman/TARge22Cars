@@ -6,13 +6,15 @@ using TARge22Cars.ApplicationService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<TARge22CarsContext>(options =>
-   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ICarsServices, CarsServices>();
+
+
+builder.Services.AddDbContext<TARge22CarsContext>(options =>
+   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

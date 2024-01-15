@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TARge22Cars.Data;
 
@@ -11,9 +12,10 @@ using TARge22Cars.Data;
 namespace TARge22Cars.Data.Migrations
 {
     [DbContext(typeof(TARge22CarsContext))]
-    partial class TARge22CarsContextModelSnapshot : ModelSnapshot
+    [Migration("20240110122147_Cars")]
+    partial class Cars
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +26,7 @@ namespace TARge22Cars.Data.Migrations
 
             modelBuilder.Entity("TARge22Cars.Core.Domain.Car", b =>
                 {
-                    b.Property<Guid?>("CarId")
+                    b.Property<Guid>("CarId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -68,8 +70,8 @@ namespace TARge22Cars.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("Year")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("CarId");
 

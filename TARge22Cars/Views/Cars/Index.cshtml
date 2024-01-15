@@ -34,9 +34,9 @@
                                 <td>@cars.Fuel</td>
                                 <td>@cars.Mileage</td>
                                 <td>
-                                    <a asp-action=" details" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-success">Details</a>
-                                    <a asp-action=" update" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-warning">Update</a>
-                                    <a asp-action=" delete" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-danger">Delete</a>
+                                    <a asp-action="details" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-success">Details</a>
+                                    <a asp-action="update" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-warning">Update</a>
+                                    <a asp-action="delete" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-danger">Delete</a>
                                 </td>
                             </tr>
                             rowNr += 1;
@@ -50,7 +50,7 @@
             </table>
         </form>
         <div>
-            <a asp-action="create" asp-controller="cars" type="submit" class="btn">Create</a>
+            <a asp-action="create" asp-controller="cars" type="submit" class="btn btn-success">Create</a>
         </div>
     </div>
 </body>

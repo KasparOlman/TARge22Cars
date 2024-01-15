@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Drawing;
 using System.Reflection.Metadata.Ecma335;
 using TARge22Cars.Core.Dto;
 using TARge22Cars.Core.ServiceInterface;
@@ -54,14 +55,14 @@ namespace TARge22Cars.Controllers
                 CarId = vm.CarId,
                 Make = vm.Make,
                 Model = vm.Model,
-                Mileage = vm.Mileage,
-                Fuel = vm.Fuel,
-                Transmission = vm.Transmission,
-                Power = vm.Power,
-                Drivetrain = vm.Drivetrain,
                 Color = vm.Color,
-                FuelConsumption = vm.FuelConsumption,
                 Year = vm.Year,
+                Power = vm.Power,
+                Transmission = vm.Transmission,
+                Drivetrain = vm.Drivetrain,
+                Fuel = vm.Fuel,
+                FuelConsumption = vm.FuelConsumption,
+                Mileage = vm.Mileage,
                 CreatedAt = vm.CreatedAt,
                 UpdatedAt = vm.UpdatedAt,
             };
@@ -85,14 +86,14 @@ namespace TARge22Cars.Controllers
             vm.CarId = car.CarId;
             vm.Make = car.Make;
             vm.Model = car.Model;
-            vm.Mileage = car.Mileage;
-            vm.Fuel = car.Fuel;
-            vm.Transmission = car.Transmission;
-            vm.Power = car.Power;
-            vm.Drivetrain = car.Drivetrain;
             vm.Color = car.Color;
-            vm.FuelConsumption = car.FuelConsumption;
             vm.Year = car.Year;
+            vm.Power = car.Power;
+            vm.Transmission = car.Transmission;
+            vm.Drivetrain = car.Drivetrain;
+            vm.Fuel = car.Fuel;
+            vm.FuelConsumption = car.FuelConsumption;
+            vm.Mileage = car.Mileage;
             vm.CreatedAt = car.CreatedAt;
             vm.UpdatedAt = car.UpdatedAt;
 
@@ -112,14 +113,14 @@ namespace TARge22Cars.Controllers
             vm.CarId = car.CarId;
             vm.Make = car.Make;
             vm.Model = car.Model;
-            vm.Mileage = car.Mileage;
-            vm.Fuel = car.Fuel;
-            vm.Transmission = car.Transmission;
-            vm.Power = car.Power;
-            vm.Drivetrain = car.Drivetrain;
             vm.Color = car.Color;
-            vm.FuelConsumption = car.FuelConsumption;
             vm.Year = car.Year;
+            vm.Power = car.Power;
+            vm.Transmission = car.Transmission;
+            vm.Drivetrain = car.Drivetrain;
+            vm.Fuel = car.Fuel;
+            vm.FuelConsumption = car.FuelConsumption;
+            vm.Mileage = car.Mileage;
             vm.CreatedAt = car.CreatedAt;
             vm.UpdatedAt = car.UpdatedAt;
 
@@ -128,19 +129,23 @@ namespace TARge22Cars.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(CarsCreateUpdateViewModel vm)
         {
+            if (vm == null)
+            {
+                return BadRequest();
+            }
             var dto = new CarDto()
             {
                 CarId = vm.CarId,
                 Make = vm.Make,
                 Model = vm.Model,
-                Mileage = vm.Mileage,
-                Fuel = vm.Fuel,
-                Transmission = vm.Transmission,
-                Power = vm.Power,
-                Drivetrain = vm.Drivetrain,
                 Color = vm.Color,
-                FuelConsumption = vm.FuelConsumption,
                 Year = vm.Year,
+                Power = vm.Power,
+                Transmission = vm.Transmission,
+                Drivetrain = vm.Drivetrain,
+                Fuel = vm.Fuel,
+                FuelConsumption = vm.FuelConsumption,
+                Mileage = vm.Mileage,
                 CreatedAt = vm.CreatedAt,
                 UpdatedAt = vm.UpdatedAt,
 
@@ -178,17 +183,18 @@ namespace TARge22Cars.Controllers
 
             return View(vm);
         }
+
         [HttpPost]
-        public async Task<IActionResult>DeleteConfitmation(Guid id)
+        public async Task<IActionResult> DeleteConfirmation(Guid id)
         {
-            var carId = await _carsServices.DetailsAsync(id);
+            var carId = await _carsServices.Delete(id);
 
             if (carId == null)
             {
                 return RedirectToAction("Index");
             }
-            return RedirectToAction(nameof(Index));
 
+            return RedirectToAction(nameof(Index));
         }
 
     }

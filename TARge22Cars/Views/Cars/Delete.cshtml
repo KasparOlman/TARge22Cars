@@ -68,10 +68,12 @@
             </div>
             <form asp-action="DeleteConfirmation">
                 <input type="hidden" asp-for="CarId"/>
-                <input type="hidden" value="Delete" class="btn"/>
-                <a asp-action="Index" asp-controller="cars" class="btn">Back</a>
+                <input type="submit" value="Delete" class="btn btn-outline-danger" />
 
+                <a asp-action="Index" asp-controller="cars" class="btn btn-outline-primary">Back</a>
             </form>
+
+
         </dl>
     </div>
 </body>

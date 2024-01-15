@@ -45,11 +45,12 @@ namespace TARge22Cars.ApplicationService.Services
             return car;
         }
 
+
         public async Task<Car> Update(CarDto dto)
         {
             Car domain = new();
 
-            domain.CarId = Guid.NewGuid();
+            domain.CarId = dto.CarId;
             domain.Make = dto.Make;
             domain.Model = dto.Model;
             domain.Color = dto.Color;
@@ -63,22 +64,23 @@ namespace TARge22Cars.ApplicationService.Services
             domain.CreatedAt = DateTime.Now;
             domain.UpdatedAt = DateTime.Now;
 
+
             _context.Cars.Update(domain);
             await _context.SaveChangesAsync();
             return domain;
 
         }
 
-        public async Task<Car> DetailsAsync (Guid id)
+        public async Task<Car> DetailsAsync(Guid id)
         {
             var result = await _context.Cars.FirstOrDefaultAsync(x => x.CarId == id);
             return result;
         }
 
-        public async Task<Car> Delete (Guid id)
+        public async Task<Car> Delete(Guid id)
         {
             var carId = await _context.Cars
-                .FirstOrDefaultAsync(x=> x.CarId == id);
+                .FirstOrDefaultAsync(x => x.CarId != id);
 
             _context.Cars.Remove(carId);
             await _context.SaveChangesAsync();

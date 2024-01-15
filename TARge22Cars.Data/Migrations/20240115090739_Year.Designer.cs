@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TARge22Cars.Data;
 
@@ -11,9 +12,10 @@ using TARge22Cars.Data;
 namespace TARge22Cars.Data.Migrations
 {
     [DbContext(typeof(TARge22CarsContext))]
-    partial class TARge22CarsContextModelSnapshot : ModelSnapshot
+    [Migration("20240115090739_Year")]
+    partial class Year
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
