@@ -5,7 +5,7 @@
 }
 <body>
     <div style="padding: 30px">
-        <form method="post" class="form" style="padding:40px;">
+        <form method="post" class="form" style="padding:50px;">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -32,7 +32,7 @@
                                 <td>@cars.Transmission</td>
                                 <td>@cars.Drivetrain</td>
                                 <td>@cars.Fuel</td>
-                                <td>@cars.Mileage</td>
+                                <td>@cars.Mileage km</td>
                                 <td>
                                     <a asp-action="details" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-success">Details</a>
                                     <a asp-action="update" asp-controller="cars" asp-route-id="@cars.CarId" class="btn btn-outline-warning">Update</a>

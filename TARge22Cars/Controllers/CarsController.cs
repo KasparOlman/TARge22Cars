@@ -5,6 +5,7 @@ using TARge22Cars.Core.Dto;
 using TARge22Cars.Core.ServiceInterface;
 using TARge22Cars.Data;
 using TARge22Cars.Models.Cars;
+using TransmissionType = TARge22Cars.Core.Dto.TransmissionType;
 
 namespace TARge22Cars.Controllers
 {
@@ -31,6 +32,7 @@ namespace TARge22Cars.Controllers
                     CarId = x.CarId,
                     Make = x.Make,
                     Model = x.Model,
+                    Year = x.Year,
                     Mileage = x.Mileage,
                     Fuel = x.Fuel,
                     Transmission = x.Transmission,
@@ -58,7 +60,7 @@ namespace TARge22Cars.Controllers
                 Color = vm.Color,
                 Year = vm.Year,
                 Power = vm.Power,
-                Transmission = vm.Transmission,
+                Transmission = (TransmissionType)vm.Transmission,
                 Drivetrain = vm.Drivetrain,
                 Fuel = vm.Fuel,
                 FuelConsumption = vm.FuelConsumption,
@@ -116,7 +118,14 @@ namespace TARge22Cars.Controllers
             vm.Color = car.Color;
             vm.Year = car.Year;
             vm.Power = car.Power;
-            vm.Transmission = car.Transmission;
+            if (Enum.TryParse(typeof(TransmissionType), car.Transmission, out var transmission))
+            {
+                vm.Transmission = (Models.Cars.TransmissionType)(TransmissionType)transmission;
+            }
+            else
+            {
+                return NotFound();
+            }
             vm.Drivetrain = car.Drivetrain;
             vm.Fuel = car.Fuel;
             vm.FuelConsumption = car.FuelConsumption;
@@ -141,7 +150,7 @@ namespace TARge22Cars.Controllers
                 Color = vm.Color,
                 Year = vm.Year,
                 Power = vm.Power,
-                Transmission = vm.Transmission,
+                Transmission = (TransmissionType)vm.Transmission,
                 Drivetrain = vm.Drivetrain,
                 Fuel = vm.Fuel,
                 FuelConsumption = vm.FuelConsumption,

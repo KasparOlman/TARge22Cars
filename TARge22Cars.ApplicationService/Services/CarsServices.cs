@@ -29,12 +29,12 @@ namespace TARge22Cars.ApplicationService.Services
             car.Model = dto.Model;
             car.Color = dto.Color;
             car.Year = dto.Year;
-            car.Transmission = dto.Transmission;
+            car.Transmission = dto.Transmission.ToString();
             car.Power = dto.Power;
             car.Fuel = dto.Fuel;
             car.FuelConsumption = dto.FuelConsumption;
             car.Mileage = dto.Mileage;
-            car.Drivetrain = dto.Drivetrain;
+            car.Drivetrain = dto.Drivetrain.ToString();
 
             car.CreatedAt = DateTime.Now;
             car.UpdatedAt = DateTime.Now;
@@ -55,12 +55,12 @@ namespace TARge22Cars.ApplicationService.Services
             domain.Model = dto.Model;
             domain.Color = dto.Color;
             domain.Year = dto.Year;
-            domain.Transmission = dto.Transmission;
+            domain.Transmission = dto.Transmission.ToString();
             domain.Power = dto.Power;
             domain.Fuel = dto.Fuel;
             domain.FuelConsumption = dto.FuelConsumption;
             domain.Mileage = dto.Mileage;
-            domain.Drivetrain = dto.Drivetrain;
+            domain.Drivetrain = dto.Drivetrain.ToString();
             domain.CreatedAt = DateTime.Now;
             domain.UpdatedAt = DateTime.Now;
 

@@ -19,4 +19,8 @@
     <ProjectReference Include="..\TARge22Cars.Core\TARge22Cars.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

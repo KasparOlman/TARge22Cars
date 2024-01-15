@@ -12,8 +12,8 @@ using TARge22Cars.Data;
 namespace TARge22Cars.Data.Migrations
 {
     [DbContext(typeof(TARge22CarsContext))]
-    [Migration("20240110122147_Cars")]
-    partial class Cars
+    [Migration("20240115103344_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,7 @@ namespace TARge22Cars.Data.Migrations
 
             modelBuilder.Entity("TARge22Cars.Core.Domain.Car", b =>
                 {
-                    b.Property<Guid>("CarId")
+                    b.Property<Guid?>("CarId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -70,8 +70,8 @@ namespace TARge22Cars.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Year")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("CarId");
 

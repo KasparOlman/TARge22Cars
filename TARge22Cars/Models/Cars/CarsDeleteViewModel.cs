@@ -6,7 +6,7 @@
         public string Make { get; set; }
         public string Model { get; set; }
         public string Color { get; set; }
-        public DateTime Year { get; set; }
+        public int Year { get; set; }
         public string Power { get; set; }
         public string Transmission { get; set; }
         public string Drivetrain { get; set; }
