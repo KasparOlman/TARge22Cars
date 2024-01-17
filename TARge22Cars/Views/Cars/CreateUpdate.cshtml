@@ -1,0 +1,130 @@
+﻿@using TARge22Cars.Core.Dto;
+@model TARge22Cars.Models.Cars.CarsCreateUpdateViewModel
+
+@if (Model.CarId.HasValue)
+{
+    <header>
+        <h3>Update</h3>
+    </header>
+}
+else
+{
+    <header>
+        <h3>Create</h3>
+    </header>
+}
+
+<section>
+    <div>
+        <form method="post">
+            <input asp-for="CarId" type="hidden"/>
+            <input asp-for="CreatedAt" type="hidden"/>
+            <input asp-for="UpdatedAt" type="hidden"/>
+
+            <div class="form-group row">
+                <label asp-for="Make" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Make" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Model" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Model" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Color" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Color" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Year" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Year" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Power" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="Power" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Transmission" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <select asp-for="Transmission" class="form-control">
+                        @foreach (var value in Enum.GetValues(typeof(TransmissionType)))
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Drivetrain" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <select asp-for="Drivetrain" class="form-control">
+                        @foreach (var value in Enum.GetValues(typeof(Drivetrain)))
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="Fuel" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <select asp-for="Fuel" class="form-control">
+                        @foreach (var value in Enum.GetValues(typeof(FuelType)))
+                        {
+                            <option value="@value">@value</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="FuelConsumption" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input asp-for="FuelConsumption" class="form-control" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">/100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label asp-for="Mileage" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <div class="input-group">
+                        <input asp-for="Mileage" class="form-control"  />
+                        <div class="input-group-append">
+                            <span class="input-group-text">km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @if (Model.CarId.HasValue)
+            {
+                <input asp-action="update" asp-controller="cars" type="submit" class="btn btn-warning" value="Update" />
+            }
+            else
+            {
+                <input asp-action="create" asp-controller="cars" type="submit" class="btn btn-primary" value="Create" />
+
+            }
+            <a asp-action="index" class="btn btn-primary">Back</a>
+        </form>
+    </div>
+</section>

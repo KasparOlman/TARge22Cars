@@ -24,7 +24,7 @@ namespace TARge22Cars.Data.Migrations
 
             modelBuilder.Entity("TARge22Cars.Core.Domain.Car", b =>
                 {
-                    b.Property<Guid>("CarId")
+                    b.Property<Guid?>("CarId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -68,8 +68,8 @@ namespace TARge22Cars.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Year")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
 
                     b.HasKey("CarId");
 

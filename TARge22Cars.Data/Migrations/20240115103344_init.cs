@@ -17,7 +17,7 @@ namespace TARge22Cars.Data.Migrations
                     Make = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Year = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: false),
                     Power = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Transmission = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Drivetrain = table.Column<string>(type: "nvarchar(max)", nullable: false),

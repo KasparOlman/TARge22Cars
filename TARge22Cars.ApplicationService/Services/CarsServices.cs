@@ -19,6 +19,9 @@ namespace TARge22Cars.ApplicationService.Services
             _context = context;
         }
 
+        public CarsServices()
+        {
+        }
 
         public async Task<Car> Create(CarDto dto)
         {
@@ -29,12 +32,12 @@ namespace TARge22Cars.ApplicationService.Services
             car.Model = dto.Model;
             car.Color = dto.Color;
             car.Year = dto.Year;
-            car.Transmission = dto.Transmission;
+            car.Transmission = dto.Transmission.ToString();
             car.Power = dto.Power;
-            car.Fuel = dto.Fuel;
+            car.Fuel = dto.Fuel.ToString();
             car.FuelConsumption = dto.FuelConsumption;
             car.Mileage = dto.Mileage;
-            car.Drivetrain = dto.Drivetrain;
+            car.Drivetrain = dto.Drivetrain.ToString();
 
             car.CreatedAt = DateTime.Now;
             car.UpdatedAt = DateTime.Now;
@@ -45,23 +48,25 @@ namespace TARge22Cars.ApplicationService.Services
             return car;
         }
 
+
         public async Task<Car> Update(CarDto dto)
         {
             Car domain = new();
 
-            domain.CarId = Guid.NewGuid();
+            domain.CarId = dto.CarId;
             domain.Make = dto.Make;
             domain.Model = dto.Model;
             domain.Color = dto.Color;
             domain.Year = dto.Year;
-            domain.Transmission = dto.Transmission;
+            domain.Transmission = dto.Transmission.ToString();
             domain.Power = dto.Power;
-            domain.Fuel = dto.Fuel;
+            domain.Fuel = dto.Fuel.ToString();
             domain.FuelConsumption = dto.FuelConsumption;
             domain.Mileage = dto.Mileage;
-            domain.Drivetrain = dto.Drivetrain;
+            domain.Drivetrain = dto.Drivetrain.ToString();
             domain.CreatedAt = DateTime.Now;
             domain.UpdatedAt = DateTime.Now;
+
 
             _context.Cars.Update(domain);
             await _context.SaveChangesAsync();
@@ -69,16 +74,16 @@ namespace TARge22Cars.ApplicationService.Services
 
         }
 
-        public async Task<Car> DetailsAsync (Guid id)
+        public async Task<Car> DetailsAsync(Guid CarId)
         {
-            var result = await _context.Cars.FirstOrDefaultAsync(x => x.CarId == id);
+            var result = await _context.Cars.FirstOrDefaultAsync(x => x.CarId == CarId);
             return result;
         }
 
-        public async Task<Car> Delete (Guid id)
+        public async Task<Car> Delete(Guid CarId)
         {
             var carId = await _context.Cars
-                .FirstOrDefaultAsync(x=> x.CarId == id);
+                .FirstOrDefaultAsync(x => x.CarId == CarId);
 
             _context.Cars.Remove(carId);
             await _context.SaveChangesAsync();
