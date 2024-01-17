@@ -194,9 +194,9 @@ namespace TARge22Cars.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteConfirmation(Guid id)
+        public async Task<IActionResult> DeleteConfirmation(Guid CarId)
         {
-            var carId = await _carsServices.Delete(id);
+            var carId = await _carsServices.Delete(CarId);
 
             if (carId == null)
             {

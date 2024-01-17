@@ -94,23 +94,34 @@ else
             <div class="form-group row">
                 <label asp-for="FuelConsumption" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
-                    <input asp-for="FuelConsumption" class="form-control" />
+                    <div class="input-group">
+                        <input asp-for="FuelConsumption" class="form-control" />
+                        <div class="input-group-append">
+                            <span class="input-group-text">/100</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
 
             <div class="form-group row">
                 <label asp-for="Mileage" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
-                    <input asp-for="Mileage" class="form-control" />
+                    <div class="input-group">
+                        <input asp-for="Mileage" class="form-control"  />
+                        <div class="input-group-append">
+                            <span class="input-group-text">km</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             @if (Model.CarId.HasValue)
             {
-                <input asp-action="update" asp-controller="cars" type="submit" class="btn btn-outline-warning" value="Update" />
+                <input asp-action="update" asp-controller="cars" type="submit" class="btn btn-warning" value="Update" />
             }
             else
             {
-                <input asp-action="create" asp-controller="cars" type="submit" class="btn btn-outline-primary" value="Create" />
+                <input asp-action="create" asp-controller="cars" type="submit" class="btn btn-primary" value="Create" />
 
             }
             <a asp-action="index" class="btn btn-primary">Back</a>
